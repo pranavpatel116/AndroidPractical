@@ -3,12 +3,17 @@ package com.dev.practical.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDialog
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
@@ -18,11 +23,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dev.practical.R
 import com.dev.practical.adapter.DrawerListAdapter
 import com.dev.practical.databinding.ActivityMainBinding
+import com.dev.practical.extra.Utils
 import com.dev.practical.model.DrawerMenuModel
+import com.dev.practical.model.TaskModel
 import com.google.android.material.navigation.NavigationView
 import com.nostra13.universalimageloader.core.DisplayImageOptions
 import com.nostra13.universalimageloader.core.ImageLoader
 import com.nostra13.universalimageloader.core.assist.ImageScaleType
+import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.android.synthetic.main.custom_tool_bar.*
 
 class MainActivity : BaseActivity(), DrawerListAdapter.OnDrawerItemSelectListener{
@@ -47,6 +55,8 @@ class MainActivity : BaseActivity(), DrawerListAdapter.OnDrawerItemSelectListene
 
     // ARRAY LIST
     private var drawerList: ArrayList<DrawerMenuModel> = ArrayList()
+    var onGoingModels : ArrayList<TaskModel> = ArrayList()
+    var firebaseTasksIds: ArrayList<String> = ArrayList()
 
     // IMAGE LOADER
     private val imageLoader: ImageLoader = ImageLoader.getInstance()
@@ -64,6 +74,9 @@ class MainActivity : BaseActivity(), DrawerListAdapter.OnDrawerItemSelectListene
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        // INIT CONTEXT
+        context = this
+
         init()
     }
 
@@ -79,11 +92,23 @@ class MainActivity : BaseActivity(), DrawerListAdapter.OnDrawerItemSelectListene
         //showTripAcceptDialog()
         tx_tool_bar_header.text = resources.getString(R.string.text_main)
 
+        // INTI ADD TASK
+        initAddTaskClick()
+
     }
 
     override fun onResume() {
         super.onResume()
         setHeaderData()
+    }
+
+    // INIT ADD TASK CLICK
+    private fun initAddTaskClick(){
+        iv_add.setOnClickListener {
+            val addTask = Intent(context, AddTaskActivity :: class.java)
+            //haddTask.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            context.startActivity(addTask)
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -173,7 +198,7 @@ class MainActivity : BaseActivity(), DrawerListAdapter.OnDrawerItemSelectListene
             0, DrawerMenuModel(0, getString(R.string.text_profile),0)
         )
         drawerList.add(
-            1, DrawerMenuModel(1, getString(R.string.text_lorem_ipsum),0)
+            1, DrawerMenuModel(1, getString(R.string.text_add_task),0)
         )
         drawerList.add(
             2, DrawerMenuModel(2, getString(R.string.text_lorem_ipsum),0)
@@ -191,7 +216,52 @@ class MainActivity : BaseActivity(), DrawerListAdapter.OnDrawerItemSelectListene
     }
 
     override fun onDrawerItemSelect(pos: Int) {
+        drawerLayout.closeDrawer(GravityCompat.START)
+        Utils.hideSoftKeyboard(this)
+        if (pos == 0){
+            val profile : Intent = Intent(context, MyProfileActivity ::class.java)
+            profile.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(profile)
+        } else if (pos == 1){
+            val addTask : Intent = Intent(context, AddTaskActivity ::class.java)
+            addTask.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(addTask)
+        } else if (pos == 4){
+            showLogoutPopup()
+        }
+    }
 
+    // SHOW CANCEL RIDE POPUP
+    private fun showLogoutPopup(){
+        try {
+            val alertCancelBooking = AppCompatDialog(context)
+            alertCancelBooking.setContentView(R.layout.confirmation_pop_up)
+
+            val txNo = alertCancelBooking.findViewById<AppCompatTextView>(R.id.btn_no)
+            val txYes = alertCancelBooking.findViewById<AppCompatTextView>(R.id.btn_yes)
+            val txMessage = alertCancelBooking.findViewById<AppCompatTextView>(R.id.tx_message)
+
+            txMessage!!.text = context.resources.getString(R.string.logout_str)
+
+            txNo!!.setOnClickListener {
+                alertCancelBooking.dismiss()
+            }
+
+            txYes!!.setOnClickListener {
+                sessionManager.clearData()
+                val login = Intent(context, LoginActivity::class.java)
+                login.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                context.startActivity(login)
+                alertCancelBooking.dismiss()
+            }
+
+            alertCancelBooking.window!!.setBackgroundDrawable( ColorDrawable(Color.TRANSPARENT))
+            alertCancelBooking.window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            alertCancelBooking.window!!.setGravity(Gravity.CENTER)
+            alertCancelBooking.show()
+        } catch (e : Exception){
+            e.printStackTrace()
+        }
     }
 
 }

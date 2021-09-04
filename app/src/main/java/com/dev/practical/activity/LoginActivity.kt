@@ -115,6 +115,8 @@ class LoginActivity : BaseActivity() {
                             dataSnapshot.value as HashMap<String, Any>?
                         if (objectMap != null) {
                             val id = objectMap[Keys.firebaseUserId].toString()
+                            sessionManager.name = objectMap[Keys.firebaseUserFullName].toString()
+                            sessionManager.email = objectMap[Keys.firebaseUserEmail].toString()
                             sessionManager.profilePic = objectMap[Keys.firebaseUserProfilePic].toString()
                             sessionManager.isUserLoggedIn = true
                             if (id.contains(java.lang.String.valueOf(sessionManager.userId))) {

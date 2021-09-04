@@ -34,6 +34,22 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="text_main">Main</string>
     <string name="text_logout">Logout</string>
-    <string name="text_profile">Profile</string>
+    <string name="text_profile">My Profile</string>
     <string name="text_lorem_ipsum">Lorem Ipsum</string>
+    <string name="hint_task_title">Enter Task Title</string>
+    <string name="hint_task_description">Task Description</string>
+    <string name="add_task">Add Task</string>
+    <string name="hint_remind_date_time"><![CDATA[Select Remind Date & Time]]></string>
+    <string name="hint_due_date">Select Due Date</string>
+    <string name="update">Update</string>
+    <string name="my_ptofile">My Profile</string>
+    <string name="logout_str">Are you sure want to logout?</string>
+    <string name="text_no">No</string>
+    <string name="text_yes">Yes</string>
+    <string name="error_empty_task_title">Please enter task title</string>
+    <string name="error_empty_task_description">Please enter task description</string>
+    <string name="error_empty_remind_me"><![CDATA[Please select remind me date & time]]></string>
+    <string name="error_empty_due_date">Please select due date</string>
+    <string name="text_add_task">Add Task</string>
+    <string name="task_added">Task Added Successfully!</string>
 </resources>

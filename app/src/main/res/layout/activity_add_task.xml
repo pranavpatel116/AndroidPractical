@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/custom_tool_bar"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/_20sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity=""
+                android:paddingStart="@dimen/_16sdp"
+                android:paddingEnd="@dimen/_16sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/_16sdp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="@dimen/_2sdp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/ed_task_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="@string/hint_task_title"
+                            android:inputType="textPersonName|textCapWords"
+                            android:lines="1"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/color_grey"
+                            android:textSize="@dimen/_11ssp"
+                            android:padding="@dimen/_8sdp"/>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_8sdp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/ed_task_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="@string/hint_task_description"
+                            android:inputType="textMultiLine"
+                            android:lines="4"
+                            android:layout_gravity="top"
+                            android:gravity="top"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/color_grey"
+                            android:textSize="@dimen/_11ssp"
+                            android:padding="@dimen/_8sdp"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="@dimen/_2sdp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/ed_remind_me"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="@string/hint_remind_date_time"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/color_grey"
+                            android:textSize="@dimen/_11ssp"
+                            android:padding="@dimen/_8sdp"
+                            android:clickable="true"
+                            android:focusable="false"/>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true"
+                        app:cardElevation="@dimen/_2sdp">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/ed_due_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:hint="@string/hint_due_date"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:textColor="@color/colorBlack"
+                            android:textColorHint="@color/color_grey"
+                            android:textSize="@dimen/_11ssp"
+                            android:padding="@dimen/_8sdp"
+                            android:clickable="true"
+                            android:focusable="false"/>
+
+
+                    </androidx.cardview.widget.CardView>
+
+
+
+                </LinearLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_add_task"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_8sdp"
+                    app:cardUseCompatPadding="true"
+                    app:cardElevation="@dimen/_2sdp"
+                    app:cardBackgroundColor="@color/purple_500"
+                    android:layout_marginTop="@dimen/_24sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/add_task"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        android:padding="@dimen/_8sdp"/>
+
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+</layout>

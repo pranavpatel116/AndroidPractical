@@ -49,11 +49,27 @@ public class FirebaseReferneces {
         getDatabaseReference(Keys.firebaseUsers).child(id).updateChildren(hashMap);
     }
 
-    public static void updateImageUrlInUser(String userId,String imageUrl){
-        try {
-            getDatabaseReference(Keys.firebaseUsers).child(userId).child(Keys.firebaseUserProfilePic).setValue(imageUrl);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
+    public static void createTask(String id, String title, String description, String remindDate, String dueDate, String userId) {
+        getDatabaseReference(Keys.firebaseTasks).child(id).setValue(id);
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put(Keys.firebaseTaskId, id);
+        hashMap.put(Keys.firebaseTaskTitle, title);
+        hashMap.put(Keys.firebaseTaskDescription, description);
+        hashMap.put(Keys.firebaseRemindMeDate, remindDate);
+        hashMap.put(Keys.firebaseDueDate, dueDate);
+        hashMap.put(Keys.firebaseUserId, userId);
+        getDatabaseReference(Keys.firebaseTasks).child(id).updateChildren(hashMap);
     }
+
+    public static void updateTask(String id, String title, String description, String remindDate, String dueDate, String userId) {
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put(Keys.firebaseTaskId, id);
+        hashMap.put(Keys.firebaseTaskTitle, title);
+        hashMap.put(Keys.firebaseTaskDescription, description);
+        hashMap.put(Keys.firebaseRemindMeDate, remindDate);
+        hashMap.put(Keys.firebaseDueDate, dueDate);
+        hashMap.put(Keys.firebaseUserId, userId);
+        getDatabaseReference(Keys.firebaseTasks).child(id).updateChildren(hashMap);
+    }
+
 }

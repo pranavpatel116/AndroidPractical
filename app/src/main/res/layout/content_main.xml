@@ -71,20 +71,23 @@
             android:layout_height="0dp"
             android:layout_weight="1">
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_add"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/bg_circle"
+                android:src="@drawable/ic_baseline_add"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="@dimen/_16sdp"
+                android:padding="@dimen/_8sdp" />
+
+
             <androidx.viewpager.widget.ViewPager
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"/>
 
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:src="@drawable/ic_baseline_add"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_margin="@dimen/_16sdp"
-                android:tint="@color/white"/>
 
         </RelativeLayout>
 

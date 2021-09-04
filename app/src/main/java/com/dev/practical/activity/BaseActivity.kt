@@ -43,4 +43,16 @@ open class BaseActivity : AppCompatActivity() {
         iv_drawer_menu.visibility = View.VISIBLE
         iv_back.visibility = View.GONE
     }
+
+    // SET TOOL BAR
+    public fun setToolbarText(text : String) {
+        tx_tool_bar_header.text = text
+    }
+
+    // ON BACK BUTTON PRESS
+    public fun onBackButtonClick(){
+        iv_back.setOnClickListener {
+            onBackPressed()
+        }
+    }
 }

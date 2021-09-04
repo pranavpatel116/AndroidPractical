@@ -13,18 +13,27 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".PracticalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".PracticalApplication"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
+        android:largeHeap="true"
         android:requestLegacyExternalStorage="true"
-        android:theme="@style/Theme.Practical">
-
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true">
+        <activity
+            android:name=".activity.TaskDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MyProfileActivity"
+            android:theme="@style/Theme.Practical.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".activity.AddTaskActivity"
+            android:theme="@style/Theme.Practical.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activity.SplashActivity"
-            android:exported="true"
             android:theme="@style/Theme.Practical.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,18 +43,15 @@
         </activity>
         <activity
             android:name=".activity.LoginActivity"
-            android:exported="true"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:theme="@style/Theme.Practical.NoActionBar"/>
+            android:theme="@style/Theme.Practical.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activity.RegisterActivity"
-            android:exported="true"
-            android:windowSoftInputMode="stateHidden|adjustResize"
-            android:theme="@style/Theme.Practical.NoActionBar"/>
+            android:theme="@style/Theme.Practical.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.Practical.NoActionBar"/>
+            android:theme="@style/Theme.Practical.NoActionBar" />
     </application>
 
 </manifest>
