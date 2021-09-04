@@ -13,10 +13,19 @@
     <string name="hint_email">Enter Email</string>
     <string name="hint_password">Enter Password</string>
     <string name="register">Register</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="error_empty_full_name">Please enter full name</string>
     <string name="error_empty_email">Please enter email id</string>
     <string name="error_valid_email">Please enter valid email id</string>
     <string name="error_empty_password">Please enter password</string>
     <string name="error_valid_password">Password must be max 6 characters including upper/lowercase, special character and numbers.</string>
+    <string name="login">Login</string>
+    <string name="text_not_a_member">Not a member? <u>Sign up</u></string>
+    <string name="take_picture">Take picture</string>
+    <string name="open_gallery">Open from gallery</string>
+    <string name="select_profile_pic">Select profile pic</string>
+    <string name="cancel">Cancel</string>
+    <string name="select_picture">Select picture</string>
+    <string name="denied_permission">Permission Denied!</string>
+    <string name="email_exists">Email already exists</string>
 </resources>

@@ -39,7 +39,12 @@ class SessionManager(
             editor.commit()
         }
 
-
+    var password : String?
+        get() = pref.getString(PASSWORD, "")
+        set(email) {
+            editor.putString(PASSWORD, email)
+            editor.commit()
+        }
 
     var mobileNumber : String?
         get() = pref.getString(MOBILE_NUMBER, "")
@@ -47,6 +52,14 @@ class SessionManager(
             editor.putString(MOBILE_NUMBER, mobileNumber)
             editor.commit()
         }
+
+    var profilePic : String?
+        get() = pref.getString(PROFILE, "")
+        set(profile) {
+            editor.putString(PROFILE, profile)
+            editor.commit()
+        }
+
 
     var isUserLoggedIn : Boolean?
         get() = pref.getBoolean(IS_USER_LOGGED_IN, false)
@@ -75,6 +88,8 @@ class SessionManager(
         private const val MOBILE_NUMBER = "mobile_number"
         private const val IS_USER_LOGGED_IN = "is_user_logged_in"
         private const val USER_ID = "user_id"
+        private const val PASSWORD = "password"
+        private const val PROFILE = "profile"
 
         @Synchronized
         fun getInstance(context: Context): SessionManager? {

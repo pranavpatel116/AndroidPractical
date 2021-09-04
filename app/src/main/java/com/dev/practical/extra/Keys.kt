@@ -494,6 +494,7 @@ interface Keys {
         const val firebaseUserProfilePic : String = "profile_pic"
         const val firebaseUserMobileNo : String = "mobile_no"
         const val firebaseUserEmail : String = "email"
+        const val firebaseUserPassword : String = "password"
         const val firebaseUserProvider : String = "proivder"
         const val firebaseUserProviderId : String = "provider_id"
         const val firebaseUserDeviceType : String = "device_type"

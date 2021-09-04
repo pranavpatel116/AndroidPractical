@@ -30,26 +30,28 @@ public class FirebaseReferneces {
         return FIREBASE_DATABASE.getReference(ref);
     }
 
-    public static void createUser(String id, String firstName, String email) {
+    public static void createUser(String id, String firstName, String email, String profileImage) {
         getDatabaseReference(Keys.firebaseUsers).child(id).setValue(id);
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(Keys.firebaseUserId, id);
         hashMap.put(Keys.firebaseUserFullName, firstName);
         hashMap.put(Keys.firebaseUserEmail, email);
+        hashMap.put(Keys.firebaseUserProfilePic, profileImage);
         getDatabaseReference(Keys.firebaseUsers).child(id).updateChildren(hashMap);
     }
 
-    public static void updateUserDetails(String id, String firstName,String email) {
+    public static void updateUserDetails(String id, String firstName,String email, String profileImage) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put(Keys.firebaseUserId, id);
         hashMap.put(Keys.firebaseUserFullName, firstName);
         hashMap.put(Keys.firebaseUserEmail, email);
+        hashMap.put(Keys.firebaseUserProfilePic, profileImage);
         getDatabaseReference(Keys.firebaseUsers).child(id).updateChildren(hashMap);
     }
 
-    public static void updateImageUrlInChat(String teamId, String chatId, String imageUrl){
+    public static void updateImageUrlInUser(String userId,String imageUrl){
         try {
-            getDatabaseReference(Keys.firebaseChatRooms).child(teamId).child(Keys.firebaseChatMesssges).child(chatId).child(Keys.message).setValue(imageUrl);
+            getDatabaseReference(Keys.firebaseUsers).child(userId).child(Keys.firebaseUserProfilePic).setValue(imageUrl);
         } catch (Exception e){
             e.printStackTrace();
         }

@@ -19,14 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Practical">
-        <activity
-            android:name=".activity.BaseActivity"
-            android:exported="true"
-            android:label="@string/title_activity_base"
-            android:theme="@style/Theme.Practical.NoActionBar" />
+
         <activity
             android:name=".activity.SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Practical.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,14 +33,17 @@
         <activity
             android:name=".activity.LoginActivity"
             android:exported="true"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:theme="@style/Theme.Practical.NoActionBar"/>
         <activity
             android:name=".activity.RegisterActivity"
             android:exported="true"
-            android:windowSoftInputMode="stateHidden|adjustResize" />
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:theme="@style/Theme.Practical.NoActionBar"/>
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.Practical.NoActionBar"/>
     </application>
 
 </manifest>
