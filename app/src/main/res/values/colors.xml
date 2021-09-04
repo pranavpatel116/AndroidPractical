@@ -11,4 +11,6 @@
     <color name="color_grey">#999999</color>
     <color name="colorBlack">#000000</color>
     <color name="color_icon">#6F6F6F</color>
+    <color name="colorLightGrey">#E7E7E7</color>
+    <color name="colorGreyBg">#2f2f2f</color>
 </resources>

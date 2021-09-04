@@ -423,7 +423,9 @@ class RegisterActivity : BaseActivity() {
 
     // CHECK VALIDATION
     private fun checkValidation(){
-        if (binding.edFullName.text.toString().trim().isEmpty()){
+        if (uploadedImageUri == null){
+            Utils.showAlertCustom(context, context.resources.getString(R.string.error_empty_profile))
+        } else if (binding.edFullName.text.toString().trim().isEmpty()){
             Utils.showAlertCustom(context, context.resources.getString(R.string.error_empty_full_name))
         } else if (binding.edEmail.text.toString().trim().isEmpty()){
             Utils.showAlertCustom(context, context.resources.getString(R.string.error_empty_email))

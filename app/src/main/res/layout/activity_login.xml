@@ -102,7 +102,7 @@
 
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_register"
+                    android:id="@+id/cv_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="@dimen/_8sdp"

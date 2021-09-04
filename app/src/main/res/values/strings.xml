@@ -6,7 +6,6 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="hint_full_name">Enter Full Name</string>
@@ -28,4 +27,13 @@
     <string name="select_picture">Select picture</string>
     <string name="denied_permission">Permission Denied!</string>
     <string name="email_exists">Email already exists</string>
+    <string name="error_empty_profile">Please upload profile picture</string>
+    <string name="on_going">On Going</string>
+    <string name="completed">Completed</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="text_main">Main</string>
+    <string name="text_logout">Logout</string>
+    <string name="text_profile">Profile</string>
+    <string name="text_lorem_ipsum">Lorem Ipsum</string>
 </resources>
